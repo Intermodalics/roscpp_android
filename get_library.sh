@@ -72,7 +72,7 @@ elif [ $1 == 'octomap' ]; then
     URL=https://github.com/OctoMap/octomap/archive/v1.6.8.tar.gz
     COMP='gz'
 elif [ $1 == 'opencv' ]; then
-    URL=https://github.com/Itseez/opencv/archive/3.3.1.tar.gz
+    URL=https://github.com/opencv/opencv/archive/3.3.1.tar.gz
     COMP='gz'
 elif [ $1 == 'orocos_kdl' ]; then
     URL=https://github.com/smits/orocos-kdl-release/archive/release/indigo/orocos_kdl/1.3.0-0.tar.gz

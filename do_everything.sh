@@ -172,9 +172,6 @@ if [[ $skip -ne 1 ]] ; then
     # Patch libiconv - Remove 'gets' error
     apply_patch $my_loc/patches/libiconv.patch
 
-    # Patch opencv - Fix installation path
-    #apply_patch $my_loc/patches/opencv.patch
-
     # Patch qhull - Don't install shared libraries
     # TODO: Remove shared libraries to avoid hack in parse_libs.py
     #apply_patch /opt/roscpp_android/patches/qhull.patch
