@@ -10,7 +10,7 @@
  
 --- catkin_ws/src/vision_opencv/cv_bridge/cmake/cv_bridge-extras.cmake.in
 +++ catkin_ws/src/vision_opencv/cv_bridge/cmake/cv_bridge-extras.cmake.in
-@@ -1,12 +1,14 @@
+@@ -1,12 +1,22 @@
 -set(OpenCV_VERSION @OpenCV_VERSION@)
 -set(OpenCV_VERSION_MAJOR @OpenCV_VERSION_MAJOR@)
 -set(OpenCV_VERSION_MINOR @OpenCV_VERSION_MINOR@)
@@ -32,5 +32,13 @@
 +# replace imported targets to mimic the behavior of catkin_package(LIBRARIES)
 +catkin_replace_imported_library_targets(OpenCV_LIBRARIES ${OpenCV_LIBRARIES})
 +
-+list(APPEND @PROJECT_NAME@_LIBRARIES ${OpenCV_LIBRARIES})
-+list(APPEND @PROJECT_NAME@_INCLUDE_DIRS ${OpenCV_INCLUDE_DIRS})
++# deduplicate libraries while maintaining build configuration keywords
++catkin_pack_libraries_with_build_configuration(_@PROJECT_NAME@_LIBRARIES ${@PROJECT_NAME@_LIBRARIES} ${OpenCV_LIBRARIES})
++set(@PROJECT_NAME@_LIBRARIES "")
++foreach(library ${_@PROJECT_NAME@_LIBRARIES})
++  list_append_deduplicate(@PROJECT_NAME@_LIBRARIES ${library})
++endforeach()
++catkin_unpack_libraries_with_build_configuration(@PROJECT_NAME@_LIBRARIES ${@PROJECT_NAME@_LIBRARIES})
++unset(_@PROJECT_NAME@_LIBRARIES)
++
++list_append_unique(@PROJECT_NAME@_INCLUDE_DIRS ${OpenCV_INCLUDE_DIRS})
