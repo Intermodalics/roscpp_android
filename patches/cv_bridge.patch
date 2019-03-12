@@ -10,7 +10,7 @@
  
 --- catkin_ws/src/vision_opencv/cv_bridge/cmake/cv_bridge-extras.cmake.in
 +++ catkin_ws/src/vision_opencv/cv_bridge/cmake/cv_bridge-extras.cmake.in
-@@ -1,11 +1,10 @@
+@@ -1,12 +1,14 @@
 -set(OpenCV_VERSION @OpenCV_VERSION@)
 -set(OpenCV_VERSION_MAJOR @OpenCV_VERSION_MAJOR@)
 -set(OpenCV_VERSION_MINOR @OpenCV_VERSION_MINOR@)
@@ -21,7 +21,6 @@
 -set(OpenCV_LIB_COMPONENTS @OpenCV_LIB_COMPONENTS@)
 -set(OpenCV_USE_MANGLED_PATHS @OpenCV_USE_MANGLED_PATHS@)
 -set(OpenCV_MODULES_SUFFIX @OpenCV_MODULES_SUFFIX@)
--
 +find_package(OpenCV 3 REQUIRED
 +  COMPONENTS
 +    opencv_core
@@ -29,6 +28,9 @@
 +    opencv_imgcodecs
 +  CONFIG
 +)
+ 
++# replace imported targets to mimic the behavior of catkin_package(LIBRARIES)
++catkin_replace_imported_library_targets(OpenCV_LIBRARIES ${OpenCV_LIBRARIES})
 +
 +list(APPEND @PROJECT_NAME@_LIBRARIES ${OpenCV_LIBRARIES})
 +list(APPEND @PROJECT_NAME@_INCLUDE_DIRS ${OpenCV_INCLUDE_DIRS})
