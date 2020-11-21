@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">RosHello</string>
+    <string name="masterIP_hint">ROS master IP</string>
+    <string name="master_port_hint">ROS master port</string>
+    <string name="my_ip_checkbox">Force ROS_IP</string>
+    <string name="remapping_args_hint">Enter extra remapping arguments</string>
+    <string name="button_run">Run</string>
+    <string name="button_stop">Stop</string>
+    <string name="status_waiting">Enter valid IP addresses and press run to continue</string>
+    <string name="status_masterIP_error">Master IP address isn\'t valid</string>
+    <string name="status_master_port_error">Master port isn\'t valid; enter a value between 0 and 65535.</string>
+    <string name="status_myIP_error">Your IP address isn\'t valid</string>
+    <string name="status_check_master_error">Can\'t connect to ros master, check if the IPs are correct and check ROS_IP in the master.</string>
+    <string name="status_running">The app is running</string>
+
+    <!-- Keys for preferences -->
+    <string name="pref_master_ip_key">pref_master_ip_key</string>
+    <string name="pref_master_ip_default">192.168.0.10</string>
+
+    <string name="pref_master_port_key">pref_master_port_key</string>
+    <string name="pref_master_port_default">11311</string>
+
+    <string name="pref_remappings_key">pref_remappings_key</string>
+    <string name="pref_remappings_default"></string>
 </resources>

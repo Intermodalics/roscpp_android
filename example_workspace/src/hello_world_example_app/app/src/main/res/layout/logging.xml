@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/status_waiting"
+        android:digits="0123456789." />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/master_ip"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="@string/masterIP_hint"
+            android:digits="0123456789." />
+
+        <EditText
+            android:id="@+id/master_port"
+            android:layout_width="0dp"
+            android:layout_weight="0.9"
+            android:layout_height="wrap_content"
+            android:hint="@string/master_port_hint"
+            android:digits="0123456789" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox android:id="@+id/my_ip_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/my_ip_checkbox"
+            android:checked="false"
+            android:onClick="onCheckboxClicked"/>
+
+        <Spinner
+            android:id="@+id/my_ip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/remapping_args"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/remapping_args_hint" />
+
+    <Button
+        android:id="@+id/run_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_run"
+        android:digits="0123456789." />
+</LinearLayout>
